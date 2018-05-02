@@ -1,8 +1,19 @@
 package jpush
 
+// Notification 通知
+type Notification struct {
+	Android *NotificationAndroid `json:"android,omitempty"`
+	Ios     *NotificationIos     `json:"ios,omitempty"`
+}
+
+// NotificationIos ios通知
+// TODO
+type NotificationIos struct {
+}
+
 // NotificationAndroid 安卓通知
 type NotificationAndroid struct {
-	// 通知内容
+	// Alert 通知内容
 	// 这里指定了，则会覆盖上级统一指定的 alert 信息；内容可以为空字符串，则表示不展示到通知栏。
 	Alert string `json:"alert"`
 
@@ -44,7 +55,7 @@ type NotificationAndroid struct {
 	// 如果是 http／https 的url，会自动下载；如果要指定开发者准备的本地图片就填sdcard 的相对路径。支持 api 16以上的rom。
 	BigPicPath string `json:"big_pic_path,omitempty"`
 
-	// 扩展字段
+	// Extras 扩展字段
 	// 这里自定义 JSON 格式的 Key/Value 信息，以供业务使用。
 	Extras map[string]interface{} `json:"extras,omitempty"`
 }
