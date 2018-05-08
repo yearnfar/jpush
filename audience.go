@@ -12,7 +12,7 @@ type Audience struct {
 	TagNot []string `json:"tag_not,omitempty"`
 
 	// Alias 数组。多个别名之间是 OR 关系，即取并集。
-	Alias string `json:"alias,omitempty"`
+	Alias []string `json:"alias,omitempty"`
 
 	// RegistrationID 数组。多个注册ID之间是 OR 关系，即取并集。
 	RegistrationID []string `json:"registration_id,omitempty"`
